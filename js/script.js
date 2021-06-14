@@ -8,8 +8,6 @@ const noOfChances = document.querySelector("#number_of_chances");
 const alert = document.querySelector("#alert");
 const restartButton = document.querySelector(".d-none");
 
-console.log(randomValue);
-
 guessButton.addEventListener("click", validateGuess);
 restartButton.addEventListener("click", restartGame);
 
