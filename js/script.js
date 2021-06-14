@@ -1,6 +1,6 @@
 const low = 1;
 const high = 10;
-const randomValue = Math.floor(Math.random() * (high - low + 1) + low);
+const correct_ans = Math.floor(Math.random() * (high - low + 1) + low);
 let chances = 3;
 const input = document.querySelector("input");
 const guessButton = document.querySelector("#guess-button");
@@ -15,14 +15,15 @@ function validateGuess(e) {
     if (input.value === "") {
         createAlert("alert-info", "Enter a number");
     } else if (input.value < 1 || input.value > 10) {
-        createAlert("alert-info", "The number is between 1 and 10");
+        createAlert("alert-info", "The number should be between 1 and 10");
+        input.value = "";
     } else {
         if (chances > 0) {
-            if (randomValue > input.value) {
+            if (correct_ans > input.value) {
                 createAlert("alert-info", "Correct answer is greater");
                 chances--;
                 noOfChances.textContent = chances;
-            } else if (randomValue < input.value) {
+            } else if (correct_ans < input.value) {
                 createAlert("alert-info", "Correct answer is smaller");
                 chances--;
                 noOfChances.textContent = chances;
