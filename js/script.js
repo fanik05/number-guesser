@@ -14,28 +14,34 @@ guessButton.addEventListener("click", validateGuess);
 restartButton.addEventListener("click", restartGame);
 
 function validateGuess(e) {
-    if (chances > 0) {
-        if (randomValue > input.value) {
-            createAlert("alert-info", "Correct answer is greater");
-            chances--;
-            noOfChances.textContent = chances;
-        } else if (randomValue < input.value) {
-            createAlert("alert-info", "Correct answer is smaller");
-            chances--;
-            noOfChances.textContent = chances;
-        } else {
-            createAlert("alert-success", "You win");
+    if (input.value === "") {
+        createAlert("alert-info", "Enter a number");
+    } else if (input.value < 1 || input.value > 10) {
+        createAlert("alert-info", "The number is between 1 and 10");
+    } else {
+        if (chances > 0) {
+            if (randomValue > input.value) {
+                createAlert("alert-info", "Correct answer is greater");
+                chances--;
+                noOfChances.textContent = chances;
+            } else if (randomValue < input.value) {
+                createAlert("alert-info", "Correct answer is smaller");
+                chances--;
+                noOfChances.textContent = chances;
+            } else {
+                createAlert("alert-success", "You win");
+                input.disabled = true;
+                guessButton.disabled = true;
+                restartButton.classList.remove("d-none");
+            }
+        }
+    
+        if (chances === 0) {
+            createAlert("alert-danger", "You lose");
             input.disabled = true;
             guessButton.disabled = true;
             restartButton.classList.remove("d-none");
         }
-    }
-
-    if (chances === 0) {
-        createAlert("alert-danger", "You lose");
-        input.disabled = true;
-        guessButton.disabled = true;
-        restartButton.classList.remove("d-none");
     }
 }
 
