@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Number Guesser</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center m-5">Guess the Number</h1>
+        <div class="row justify-content-evenly text-center">
+            <div class="col-4">
+              <h2>Chances: <span id="number_of_chances">3</span></h2>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#instructionsModal">
+                    Instructions
+                </button>
+                <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="instructionsModalLabel">Game Rules</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ol class="list-group list-group-numbered text-start">
+                                    <li class="list-group-item">Guess any <strong>whole</strong> number between <strong>1-10</strong></li>
+                                    <li class="list-group-item">You get only <strong>3 chances</strong> to guess the correct number</li>
+                                </ol>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center m-5">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Guess any number between 1-10" aria-label="User's Guessed Number" aria-describedby="guess-button">
+                    <button class="btn btn-outline-secondary" type="button" id="guess-button">Guess</button>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center m-5">
+            <div class="col-6" id="alert"></div>
+        </div>
+        <div class="row justify-content-center m-5">
+            <div class="col-6 text-center">
+                <button type="button" class="btn btn-dark d-none">Restart</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
